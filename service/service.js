@@ -9,12 +9,12 @@ app.all('*', (req, res, next) => {
   res.header('Access-Control-Allow-Headers', '*')
   res.header('Access-Control-Allow-Methods', '*')
   if (req.method.toLowerCase() === 'options') {
-    res.send(200)
+    res.send(200);
   } else {
-    next()
+    next();
   }
-})
+});
 routes(app);
 app.listen(9999,function(){
-  console.log('server start at 9999')
+  console.log('server start at 9999');
 })
