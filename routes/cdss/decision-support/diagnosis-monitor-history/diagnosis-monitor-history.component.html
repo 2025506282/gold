@@ -1,0 +1,19 @@
+<div class="dMhistory">
+  <cds-data-loading-status [componentTemplate]='mainContent' [dataStatus]='loadingStatus' (refresh)='getData()'></cds-data-loading-status>
+
+  <ng-template #mainContent>
+    <h1 class="title">诊疗监控历史</h1>
+    <nz-timeline>
+      <nz-timeline-item *ngFor="let timeItem of data">
+        <span>{{timeItem.dateTime}}</span>
+        <div *ngFor="let infoItem of timeItem.actions">
+          <div *ngFor="let item of infoItem.typeContent"
+            [ngStyle]="{'color': item.color === 'yellow' ? '#FD8701' : item.color}">
+            <span style="font-weight: 600">[{{infoItem.typeLevelName}}]&nbsp;</span>
+            <span>{{item.content[0].name}}</span>
+          </div>
+        </div>
+      </nz-timeline-item>
+    </nz-timeline>
+  </ng-template>
+</div>

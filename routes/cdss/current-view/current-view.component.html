@@ -1,0 +1,19 @@
+<cds-patient-bar class="patient-card" style="display: block"></cds-patient-bar>
+<cds-data-loading-status class="current-view-loading" [dataStatus]="dataStatus" [componentTemplate]='mainContent' (refresh)="initList()">
+</cds-data-loading-status>
+<ng-template #mainContent>
+  <div class="box">
+    <!-- 评估历史 -->
+    <div class="current-view-card" *ngIf="evaluateHistories.length>0">
+      <cds-card cardTitle='评估历史' imgClass='svg-cdss-evaluate-history'>
+        <cds-history-list [list]="evaluateHistories"></cds-history-list>
+      </cds-card>
+    </div>
+    <!-- AI评估 -->
+    <div class="current-view-card ai-card" *ngIf="aiHistories.length>0">
+      <cds-card cardTitle='AI评估' imgClass='svg-cdss-ai-evaluate'>
+        <cds-history-list [list]="aiHistories" type="AI"></cds-history-list>
+      </cds-card>
+    </div>
+  </div>
+</ng-template>

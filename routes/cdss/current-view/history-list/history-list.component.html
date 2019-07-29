@@ -1,0 +1,24 @@
+<div>
+  <ng-container *ngFor="let item of list;let i = index;">
+    <div class="card-item" *ngIf="i < 3 || !isExpand">
+      <div class="item-time">
+        {{ (this.type === 'AI'? item.obsTime : item.lastModifiedTime) | transformTime}}
+      </div>
+      <div class="item-content">
+        <div class="item-title">
+          {{item.name ? item.name.split('】')[1]: ''}}
+        </div>
+        <div class="item-grade">
+         {{this.type === 'AI'?  item.tip: item.score + item.scaleUnit}} 
+        </div>
+        <div class="item-operation">
+          <a (click)="toDetail(item)">{{ this.type === 'AI'? '详情': '重新评估' }}</a>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <div class="card-operation" *ngIf="list.length>3">
+    <span (click)="toggle()">{{isExpand?'全部展开':'全部收起'}}<i nz-icon [type]="isExpand ? 'down':'up'"
+        theme="outline"></i></span>
+  </div>
+</div>

@@ -1,0 +1,79 @@
+.decision-support {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+  .decision-cdss:not(:first-child) {
+    display: inline-block;
+    width: 100%;
+    margin-top: 4px;
+  }
+  .newInfo {
+    font-size: 12px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #E7F8F6;
+    color: #27CEBF;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    z-index: 2;
+    &:hover {
+      cursor: pointer;
+    }
+    i {
+      margin-left: 10px;
+    }
+  }
+  .dMHistory, .ca-scale {
+    padding: 8px;
+    .backBtn {
+      display: inline-block;
+      color: #92A3C1;
+      margin-bottom: 10px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  ::ng-deep {
+    .wrapper {
+      height: calc(~"100% - 44px");
+    }
+  }
+}
+.rightMenu {
+  position: fixed;
+  top: 0px;
+  left: 2px;
+  width: 68px;
+  line-height: 28px;
+  text-align: center;
+  background:rgba(255,255,255,1);
+  box-shadow:0px -2px 6px 0px rgba(100,145,172,0.3);
+  border-radius:2px;
+  border:1px solid rgba(223,226,229,1);
+  z-index: 999;
+  .feedback {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+:host ::ng-deep {
+  .item-title>span {
+    white-space: nowrap;
+  }
+  a {
+    color: #009FFF;
+    text-decoration: underline;
+  }
+  .content-div > .ant-checkbox-wrapper {
+    display: inline;
+    word-wrap: break-word;
+    word-break: break-all;
+  }
+}
+

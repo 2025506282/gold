@@ -1,0 +1,23 @@
+<div class="factor-wrap">
+  <div class="factor-type">
+    <nz-divider [nzText]="protect" class="protect">
+      <ng-template #protect><i class="svg-cdss-protect"></i>保护因素</ng-template>
+    </nz-divider>
+    <nz-divider [nzText]="danger" class="danger">
+      <ng-template #danger><i class="svg-cdss-danger"></i>危险因素</ng-template>
+    </nz-divider>
+  </div>
+  <ul class="factors" *ngIf="basis">
+    <li class="factor-item" *ngFor="let factor of basis">
+      <div class="split-line"></div>
+      <div class="factor-content" [ngClass]="factor.weight < 0 ? 'factor-left' : 'factor-right' ">
+        <div class="main">{{factor.window}}{{factor.name}}{{factor.way}}{{factor.unit}}{{factor.value}}</div>
+        <div class="underline"></div>
+        <div class="sub">原值：{{factor.originVal}}{{factor.unit}} <span
+          *ngIf="factor.source || factor.time">({{factor.source}} {{factor.time}})</span></div>
+      </div>
+    </li>
+  </ul>
+  <p class="annotation">以上预警依据是在本案例通过线性回归拟合原机器学习模型得到的解释模型（仅解释本案例）</p>
+</div>
+

@@ -1,0 +1,56 @@
+<div class="clinical-pathway">
+  <div *ngIf="!moreView">
+    <div *ngFor="let child of data; let childIndex = index" class="item-content" [ngStyle]="{'border-bottom': childIndex < data.length - 1 ? '1px solid #E4E5E7' : ''}">
+      <div class="title">{{child.title}}</div>
+      <div *ngFor="let subItem of child.children">
+        <div class="sub-title">
+          {{subItem.subTitle}}
+        </div>
+        <div class="sub-item" *ngFor="let item of subItem.items; let itemIndex = index">
+          {{itemIndex + 1}}.{{item}}
+        </div>
+      </div>
+      <button class="goMore" nz-button nzType="primary" (click)="toggleMoreView(childIndex)">进入路径</button>
+    </div>
+  </div>
+  <div *ngIf="moreView" class="moreView">
+    <div class="header">
+      <span class="title">
+        {{moreData.title}}
+      </span>
+      <button class="goMain" nz-button  (click)="toggleMoreView()">退出路径</button>
+    </div>
+    <div class="content">
+        <div class="time-line">
+            <nz-timeline>
+              <nz-timeline-item 
+              *ngFor="let item of lineTimeData; let itemIndex = index" 
+              [nzColor]='"#999999"'
+              [nzDot]='currentTime === itemIndex ? circle : ""'
+              >
+                <span [ngStyle]="{'color': currentTime === itemIndex ? '#009FFF' : ''}">
+                    {{item}}
+                </span>
+              </nz-timeline-item>
+               
+              </nz-timeline>
+        </div>
+        <div class="main-content">
+            <div *ngFor="let item of moreData.list">
+              <div class="title">{{item.title}}</div>
+              <div class="child" *ngFor="let child of item.children">
+                <span class=text>{{child.text}}</span>
+                <span class=status>{{child.status}}</span>
+              </div>
+            </div>
+        </div>
+    </div>
+   
+
+  </div>
+  <ng-template #circle>
+      <span class="circle"></span>
+    </ng-template>
+</div>
+
+

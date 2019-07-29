@@ -1,0 +1,37 @@
+<div class="cdss-wrapper">
+  <div class="tabs-content">
+    <div style="text-align: center;height: 150px;" *ngIf="!hadRegister">
+      <div style="font-size: 20px;line-height: 150px">
+        请选择患者
+      </div>
+    </div>
+    <nz-tabset *ngIf="hadRegister" [nzType]="'card'" [nzTabPosition]="'right'" [nzSelectedIndex]='currentTab'
+      (nzSelectedIndexChange)='tabChange($event)'>
+      <nz-tab *ngFor="let tab of tabs" [nzTitle]="tab.title">
+
+        <div style="height:100%" [ngSwitch]="tab.key">
+          <ng-container *ngSwitchCase="0">
+            <!-- 病史信息 -->
+            <emr-medical-history class="cdss-tab"></emr-medical-history>
+          </ng-container>
+          <ng-container *ngSwitchCase="1">
+            <!-- 辅助决策 -->
+            <cds-decision-support>
+            </cds-decision-support>
+          </ng-container>
+          <ng-container *ngSwitchCase="2">
+            <!-- 临床路径 -->
+            <emr-clinical-pathway class="cdss-tab"></emr-clinical-pathway>
+          </ng-container>
+          <ng-container *ngSwitchCase="3">
+            <!-- 本次就诊 -->
+            <cds-current-view class="cdss-tab"></cds-current-view>
+          </ng-container>
+          <ng-container *ngSwitchDefault>
+          </ng-container>
+        </div>
+
+      </nz-tab>
+    </nz-tabset>
+  </div>
+</div>

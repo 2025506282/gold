@@ -1,0 +1,29 @@
+<div class="condition-analysis-box">
+  <cds-card [cardTitle]='data.typeLevel1Name' imgClass='svg-cdss-evaluate' [operations]=''>
+    <ng-container *ngIf="data">
+      <ng-container *ngFor="let item of data.actions; let dataIndex = index">
+        <ng-container *ngFor="let entry of item.typeContent">
+          <div class="analysis-item">
+            <div class="content-text">
+              <ng-template #itemContent>
+                <span *ngIf="entry.extFlag1 === 'AI'" class="svg-cdss-ai"></span>
+                <span  [innerHTML]='entry.content[0].name | transformUnderline'></span>
+              </ng-template>
+              <cds-detail-card [action]='item' class="item-content" [data]='entry' [itemContent]="itemContent"></cds-detail-card>
+            </div>
+            <div class="item-result">
+              <span>{{getScaleScore(entry.content[0].code)}}</span>
+            </div>
+            <div class="item-operate">
+              <span *ngIf="getScaleEvaluateType(entry.content[0].code) === '运算中' else aTemp">运算中...</span>
+              <ng-template #aTemp>
+                <span class="item-action"
+                  (click)="gotoDetails(entry.content[0].code, getScaleEvaluateType(entry.content[0].code))">{{getScaleEvaluateType(entry.content[0].code)}}</span>
+              </ng-template>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </cds-card>
+</div>

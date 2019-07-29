@@ -1,0 +1,30 @@
+
+<nz-modal [nzMaskClosable]='false' [nzFooter]='null' [nzVisible]="visible" nzTitle="反馈问题" (nzOnCancel)="handleCancel()" nzClassName='feedback'>
+  <div *ngIf="status === 0">
+    <div class="content">
+      反馈内容:
+      <span *ngIf="typeLevelName">[{{typeLevelName}}]</span>
+      <span>{{content}}</span>
+    </div>
+    <div class="adviseItems">
+      <div class="adviseItem" *ngFor="let item of advises" (click)="chooseItem(item)" [ngClass]="{'chooseKey': chooseKey === item.key}">
+        {{item.content}}
+      </div>
+    </div>
+    <div class="adviseBox">
+      <textarea *ngIf="visible" placeholder="输入您的意见" [rows]="2" nz-input [(ngModel)]="inputValue" (ngModelChange)='inputChange($event)'>
+        
+      </textarea>
+      <div class="textareaTag">{{inputValue.length}}/100</div>
+    </div>
+    <div class="btns">
+      <button nz-button nzType="primary" [disabled]="btnDisabled" (click)="submit()" >提交</button>
+  </div>
+  </div>
+  <div class="success" *ngIf="status === 1">
+    <i class='icon svg-feedback-success'></i>
+    <div>
+        提交成功
+    </div>
+  </div>
+</nz-modal>

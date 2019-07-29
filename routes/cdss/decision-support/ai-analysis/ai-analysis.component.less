@@ -1,0 +1,179 @@
+.ai-logo {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  vertical-align: top;
+  margin: 2px 5px 0 0;
+}
+
+.cdss-card {
+  position: fixed;
+  width: 100%;
+  top: 51px;
+  left: 0;
+  height: 40px;
+  background: #f7f8fa;
+  border: 1px solid #ebebeb;
+  margin-top: -1px;
+  z-index: 2;
+}
+
+.content {
+  display: flex;
+  padding-top: 18px;
+  margin-top: 40px;
+
+  .title {
+    height: 28px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 28px;
+  }
+
+  .left {
+    flex: 1 1 auto;
+    border-right: 2px solid #ebebeb;
+    padding-right: 20px;
+
+    .model {
+      position: relative;
+      margin-left: -10px;
+
+      .title {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .history-analysis {
+        overflow: hidden;
+        font-size: 12px;
+
+        .opt-bar {
+          float: right;
+          margin-right: 7px;
+          background-color: #f7f8fa;
+          height: 28px;
+          line-height: 26px;
+          padding: 0 12px;
+          cursor: pointer;
+
+          i {
+            margin-left: 6px;
+          }
+        }
+
+        .time-line {
+          float: left;
+          width: 100%;
+          background-color: #f7f8fa;
+          border-bottom: 1px solid #ebebeb;
+          border-top: 1px solid #ebebeb;
+          transition: height 0.2s linear;
+        }
+
+        &.opened {
+          .opt-bar {
+            border: 1px solid #ebebeb;
+            border-radius: 4px;
+            border-bottom-color: transparent;
+            position: relative;
+            top: 1px;
+          }
+
+          .time-line {
+            height: 90px;
+          }
+        }
+
+        &.closed {
+          .opt-bar {
+            border: 1px solid #DFE2E5;
+            background-color: #fff;
+            border-radius: 4px;
+          }
+
+          .time-line {
+            height: 0px;
+            border: none;
+          }
+        }
+      }
+    }
+
+    .main-variable {
+      .title {
+        .recommend {
+          color: #92A3C1;
+          line-height: 28px;
+          margin-left: 6px;
+          font-size: 14px;
+        }
+      }
+
+      .variables {
+        margin-top: 10px;
+        margin-bottom: 30px;
+
+        .var-item {
+          display: inline-block;
+          margin-right: 20px;
+
+          & > span {
+            font-weight: 400;
+            line-height: 20px;
+            vertical-align: middle;
+          }
+
+          .svg-cdss-normal,
+          .svg-cdss-warning-active {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin-left: 4px;
+            margin-right: 2px;
+          }
+
+          .var-exit {
+            color: #FD8701;
+          }
+        }
+      }
+
+      ::ng-deep .wrapper {
+        min-height: 50px;
+      }
+    }
+
+    .warning-basis {
+      ::ng-deep .wrapper {
+        min-height: 50px;
+      }
+    }
+  }
+
+  .right {
+    flex: 0 0 430px;
+    padding-left: 14px;
+
+    .history-trend {
+      margin-bottom: 20px;
+    }
+
+    .model-explain {
+      .detail {
+        margin-top: 6px;
+        margin-bottom: 16px;
+        white-space: pre-wrap;
+      }
+    }
+
+    .reference {
+      .ref-detail {
+        & > a {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

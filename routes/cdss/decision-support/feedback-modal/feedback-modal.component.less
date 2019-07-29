@@ -1,0 +1,76 @@
+
+::ng-deep {
+    .feedback {
+        width: 360px !important;
+        margin: auto !important;
+    }
+    .ant-modal-content .ant-modal-header {
+        padding-left: 16px;
+    }
+    .ant-modal-body {
+        padding: 20px 18px;
+        min-height: 200px;
+        position: relative;
+    }
+    .ant-btn-primary {
+        height: 36px;
+        width: 100px;
+    }
+}
+
+.content {
+    margin-bottom: 20px;
+    word-break: break-all;
+}
+.adviseItems {
+    display: flex;
+    flex-wrap: wrap;
+    .adviseItem {
+        display: inline-block;
+        width: 158px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        border: 1px solid #999;
+        border-radius: 5px;
+        transition: all ease 0.5s;
+        margin-bottom: 8px;
+        &:hover {
+            cursor: pointer;
+            background: #E6F7FF;
+        }
+        &:nth-child(odd) {
+            margin-right: 8px;
+        }
+    }
+    .chooseKey {
+        border-color: #009FFF;
+        color: #009FFF;
+        background: #E6F7FF;
+        font-weight: 600;
+    }
+}
+.btns {
+    text-align: center;
+}
+.success {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 28px;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    .icon {
+        display: inline-block;
+        height: 40px;
+        width: 38px;
+    }
+}
+.adviseBox {
+  text-align: right;
+    .textareaTag {
+        font-size: 12px;
+    }
+}

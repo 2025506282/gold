@@ -1,0 +1,9 @@
+<div class="diagnosis-monitor-box">
+  <cds-card [cardTitle]='data.typeLevel1Name' imgClass='svg-cdss-monitor' [operations]='history'>
+      <cds-collapse-item *ngFor="let group of data.actions" [data]='group' [hasCollapse]="(group.typeLevel === 'TM-ME' || group.typeLevel === 'TM-AB' || group.typeLevel === 'TM-IFD')"></cds-collapse-item>
+  </cds-card>
+  <ng-template #history>
+    <span (click)="viewHistory()" style="background:#F7F9FC;display:inline-block;color:#92A3C1;width: 52px;height: 24px;border-radius: 12px;text-align: center;cursor: pointer;">历史<i
+        nz-icon type="right"></i></span>
+  </ng-template>
+</div>

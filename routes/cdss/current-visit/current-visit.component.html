@@ -1,0 +1,140 @@
+<div *ngIf="condition ===1" class="panel">
+  <!-- 诊断依据 -->
+  <div class="card">
+    <div class="title">
+        诊断依据
+      </div>
+      <div class="content">
+        <span class="text">
+          患者主诉 心慌 10年，加重2年，胸闷2天，下肢浮肿1天。既往史 心房颤动，慢性心力衰竭，高血压，哮喘。查体体温:36.6°C，脉搏:87 次/分，呼吸:20 次/分，血压:163/51mmHg。心电图诊断 心房颤动，心室率过速，肾功能不全
+        </span>
+        <a class="refrence">引用</a>
+      </div>
+      <hr class="divider"/>
+  </div>
+  <!-- 病情评估 -->
+  <div class="card">
+    <div class="title">
+        病情评估
+    </div>
+    <div class="content">
+      <p class="text">
+          CHA2DS2-VASc 3分 HAS-BLED 3分
+      </p>
+      <a class="refrence">引用</a>
+    </div>
+    <hr class="divider"/>
+  </div>
+  <!-- 诊疗计划 -->
+  <div class="card">
+    <div class="title">
+      诊疗计划
+    </div>
+    <p class="note">没有入组临床路径</p>
+    <div class="content">
+      <p class="text">
+        患者存在心力衰竭，予以利尿药；
+        <br/>
+        静息心率＜110次/分，暂不推荐心室率控制药物和节律控制药物； 
+        <br/>
+        患者有高血压，需要降压治疗，但哮喘病史，慎重使用β受体阻滞剂
+        <br/> 
+        1.抗凝 
+        <br/>
+        2.利尿 
+        <br/>
+        3.降压
+      </p>
+      <a class="refrence" (click)="quote()">引用</a>
+    </div>
+    <hr class="divider"/>
+  </div>
+  <!-- 实际诊疗 -->
+  <div class="card">
+    <div class="title">
+      实际诊疗
+    </div>
+    <div class="content">
+      <span class="text">1.抗凝用药利伐沙班</span>
+      <a class="refrence">引用</a>
+    </div>
+    <div class="content">
+      <span class="text">2.利尿用药呋塞米</span>
+      <a class="refrence">引用</a>
+    </div>
+   <div class="content">
+      <span class="text">3.降压用药ACEI 类</span>
+      <a class="refrence">引用</a>
+    </div>
+    <div class="content">
+      <span class="text">4.患者出血，停用利伐沙班 </span>
+      <a class="refrence">引用</a>
+    </div>
+    <div class="content">
+      <span class="text">5.抗凝后有出血事件，考虑左心房封堵术 </span>
+      <a class="refrence">引用</a>
+    </div>
+  
+  </div>
+</div>
+<!-- version2 -->
+<div *ngIf="condition === 2" class="panel">
+  <!-- 诊断依据 -->
+  <div class="card">
+    <div class="title">
+        诊断依据
+      </div>
+      <div class="content">
+        <span class="text">
+          患者主诉 胸闷心悸6年，再发一周。既往史 高血压，糖尿病 6年。查体 桶状胸，双肺呼吸音弱，可闻及湿性啰音。心电图诊断 心房颤动，心室率过速.....
+        </span>
+        <a class="refrence">引用</a>
+      </div>
+      <hr class="divider"/>
+  </div>
+
+  <!-- 鉴别诊断 -->
+  <div class="card">
+    <div class="title">
+      鉴别诊断
+    </div>
+    <div class="content">
+      <span class="text">室性心动过速： 胸痛，心悸，心电图 明确除外本病</span>
+      <a class="refrence">引用</a>
+    </div>
+    <hr class="divider"/>
+  </div>
+
+  <!-- 病情评估 -->
+  <div class="card">
+    <div class="title">
+        病情评估
+    </div>
+    <div class="content">
+      <p class="text">
+        CHA2DS2-VASc 3分
+      </p>
+      <a class="refrence">引用</a>
+    </div>
+    <hr class="divider"/>
+  </div>
+  <!-- 诊疗计划 -->
+  <div class="card">
+    <div class="title">
+      诊疗计划
+    </div>
+    <p class="note">没有入组临床路径</p>
+    <p class="function" *ngFor="let item of function">{{item}}</p>
+    <div class="content">
+      <p class="text">
+        <label>手术</label>
+        <nz-radio-group [(ngModel)]="radioValue">
+          <label nz-radio nzValue="A">导管消融</label>
+          <label nz-radio nzValue="B">左心耳封堵</label>
+        </nz-radio-group>
+      </p>
+      <a class="refrence">引用</a>
+    </div>
+    <hr class="divider"/>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="check-inspection-card">
+  <cds-card [cardTitle]='typeLevel1Name' imgClass='svg-cdss-check' [operations]="reference">
+    <ng-container *ngFor="let item of resultActionsData">
+      <div class="card-item">
+        <div class="item-title" *ngIf="item.typeContent.length > 0">
+          [{{item.typeLevelName}}]&nbsp;
+        </div>
+        <div class="item-content">
+          <ng-container *ngFor="let subItem of item.typeContent">
+            <ng-template #itemContent>
+              <label nz-checkbox #checkbox>
+                <span [innerHTML]='subItem.content[0].name | transformUnderline'></span>
+              </label>
+            </ng-template>
+            <cds-detail-card [typeLevelName]='item.typeLevelName' [action]='item' class="content-item" [data]='subItem' [itemContent]="itemContent"></cds-detail-card>
+          </ng-container>
+        </div>
+      </div>
+
+    </ng-container>
+  </cds-card>
+  <ng-template #reference>
+    <a (click)="handleReference()" nz-tooltip nzTitle="此功能暂未开放，敬请期待" nzTrigger="hover" nzPlacement="topRight">引用</a>
+  </ng-template>
+</div>

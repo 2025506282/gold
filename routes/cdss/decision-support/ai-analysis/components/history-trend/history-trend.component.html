@@ -1,0 +1,13 @@
+<div class="wrapper">
+  <div class="echarts-title">历史趋势</div>
+  <div class="tool-box" *ngIf="generalData && generalData.button">
+    <button *ngFor="let btn of generalData.button; index as i" (click)="handleBtnClick(btn, i)"
+            [ngClass]="activeBtn === i ? 'active' : ''">{{btn.name}}</button>
+  </div>
+  <cds-data-loading-status [componentTemplate]="echartsTemplate" [dataStatus]="dataStatus"
+                           (refresh)="refresh()"></cds-data-loading-status>
+  <ng-template #echartsTemplate>
+    <div id="myChart" [style.height]="height + 'px'" *ngIf="showLineCharts"></div>
+    <div id="barChart" [style.height]="height + 'px'" *ngIf="!showLineCharts"></div>
+  </ng-template>
+</div>

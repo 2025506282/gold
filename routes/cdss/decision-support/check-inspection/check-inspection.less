@@ -1,0 +1,25 @@
+.check-inspection-card {
+  .card-item {
+    line-height: 20px;
+    display: flex;
+    .item-title {
+      white-space: nowrap;
+    }
+    .item-content {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      .content-item {
+        display: block;
+        width: 100%;
+        word-break:break-all; /*IE 允许词内换行*/
+        word-wrap:break-word; /*IE 内容将在边界内换行*/
+      }
+      ::ng-deep {
+        .ant-checkbox-wrapper + .ant-checkbox-wrapper {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
