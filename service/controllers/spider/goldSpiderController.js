@@ -69,6 +69,4 @@ class GoldSpiderController {
     return axios.get(url);
   }
 }
-// const goldSC = new GoldSpiderController();
-// goldSC.getGold(apiUrls[0]);
 module.exports = new GoldSpiderController();
