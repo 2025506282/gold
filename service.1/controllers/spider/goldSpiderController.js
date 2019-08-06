@@ -58,4 +58,4 @@ class GoldSpiderController {
     return axios.get(url);
   }
 }
-module.exports = new GoldSpiderController();
+module.exports =  GoldSpiderController;

@@ -1,6 +1,7 @@
 var fs = require("fs");
 var path = require("path"); //解析需要遍历的文件夹
-var filePath = path.resolve("./routes");
+// var filePath = path.resolve("./routes");
+var filePath = path.resolve("D:/Project/Angular/synyi.cdss.cbasedemr.front/src/app/routes/debug/ark/cdss");
 //调用文件遍历方法
 fileDisplay(filePath);
 //文件遍历方法
@@ -57,6 +58,15 @@ function transContent(content) {
         // console.log(arr[i]);
         arr[i] = "  public " + arr[i].trim();
       } else {
+      }
+    } else {
+      var types = ["boolean","string","number","array","null","undefined"];
+      // 判断是属性声明
+      if ((arr[i].indexOf(":")!==-1)&&arr[i].indexOf(";")!==-1) {
+        if (!isHasExceptionWord(exception,arr[i])) {
+          // console.log(arr[i]);
+          arr[i] = "  private " + arr[i].trim();
+        }
       }
     }
   }
