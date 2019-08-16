@@ -62,10 +62,10 @@ function transContent(content) {
     } else {
       var types = ["boolean","string","number","array","null","undefined"];
       // 判断是属性声明
-      if ((arr[i].indexOf(":")!==-1)&&arr[i].indexOf(";")!==-1) {
+      if ((arr[i].indexOf(":")!==-1)&&arr[i].indexOf(";")!==-1&&arr[i].indexOf("？")===-1) {
         if (!isHasExceptionWord(exception,arr[i])) {
           // console.log(arr[i]);
-          arr[i] = "  private " + arr[i].trim();
+          arr[i] = "  public " + arr[i].trim();
         }
       }
     }

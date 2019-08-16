@@ -1,14 +1,15 @@
 
 const mongoose = require('mongoose');
 const config = require('../config/db');
+const chalk = require('chalk');
 mongoose.connect(config.url);
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
 
 db.once('open', () => {
-  console.log(
+  console.log(chalk.green(
     '连接数据库成功'
-  );
+  ));
 })
 
 db.on('error', function (error) {

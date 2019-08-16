@@ -1,8 +1,12 @@
 const cheerio = require('cheerio');
 const url = 'http://www.dyhjw.com/';
+const SpiderController = reuqire('./SpiderController');
 const axios = require('axios');
 const TimeUtil = require('../../utils/timeUtil');
-class NewsSpiderController {
+class NewsSpiderController extends SpiderController {
+  constructor() {
+    super();
+  }
   /**
    * 爬取url上的新闻信息
    * @param {根据爬虫url} url
@@ -39,13 +43,6 @@ class NewsSpiderController {
       );
     }
     return detailUrls;
-  }
-  /**
-   * 根据url获取html文档
-   * @param {爬虫url} url
-   */
-  getHtml(url) {
-    return axios.get(url);
   }
 }
 module.exports = new NewsSpiderController();
