@@ -1,5 +1,5 @@
 const cheerio = require("cheerio");
-const SpiderController = require('./SpiderController');
+const SpiderController = require('./spiderController');
 const url = "http://www.dyhjw.com/";
 const apiUrls = ["http://api.k780.com"];
 const axios = require("axios");

@@ -1,0 +1,11 @@
+const express = require('express');
+const router = express.Router();
+const configController = require('../controllers/configController');
+// router.get('', newsController.getNews);
+// router.post('/gold', goldSpiderController.spiderGold);
+router.post('/get-spider-types', configController.getSpiderType);
+router.post('/get-spider-form', configController.getSpiderForm);
+// router.put('/:id', newsController.editNewsById);
+// router.get('/:id',newsController.getNewsById);
+// router.delete('/:id',newsController.deleteNewsById);
+module.exports = router;

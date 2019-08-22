@@ -9,7 +9,7 @@ const goldSchema = new Schema({
   "high_price": Number,
   "low_price": Number,
   "open_price": Number,
-  "yesy_price": Number
+  "yesterday_price": Number
 })
 const Gold = mongoose.model('Gold',goldSchema);
 module.exports = Gold;

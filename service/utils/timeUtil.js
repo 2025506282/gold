@@ -16,7 +16,7 @@ class TimeUtil {
       time = Number(timeDes.split('秒')[0]);
       publish_time = new Date().getTime() - time * 1000;
     }
-    console.log(moment(publish_time).format('YYYY MM DD HH:mm:ss'));
+    // console.log(moment(publish_time).format('YYYY MM DD HH:mm:ss'));
     return publish_time;
   }
 }
